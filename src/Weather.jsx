@@ -16,6 +16,7 @@ function Weather() {
     const [temerature, settemperature] = useState("")
     const [descrition, setdescription] = useState("")
     const [error, seterror] = useState("")
+    const [country, setcountry] = useState("")
 
     const handlecity = (e) => {
         setcity(e.target.value)
@@ -30,6 +31,7 @@ function Weather() {
             setweather(sucess.data.weather[0].main)
             setdescription(sucess.data.weather[0].description)
             settemperature(sucess.data.main.temp)
+            setcountry(sucess.data.sys.country)
             seterror("")
         })
             .catch((error) => {
@@ -81,6 +83,7 @@ function Weather() {
                     <h1><b>Weather: </b>{weather}</h1>
                     <h1><b>Temperature: </b>{temerature}</h1>
                     <h1><b>Description: </b>{descrition}</h1>
+                    <h1><b>Country: </b>{country}</h1>
                 </div>
             </div>
         </>
