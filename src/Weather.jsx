@@ -63,8 +63,8 @@ function Weather() {
                 }}>
 
                 <div className="text-center font-medium">
-                    <h1 className="text-2xl font-medium ">Weather Report</h1>
-                    <p>I can give a weather report about your city !</p>
+                    <h1 className="text-3xl font-medium ">Weather Report</h1>
+                    <p className="text-xl">I can give a weather report about your city !</p>
                     <div className="flex flex-col gap-1  justify-center items-center mt-3">
 
                         <input type="text" placeholder="Your city ?" value={city} onChange={handlecity} className="border border-black p-1 focus:outline-none " 
@@ -79,7 +79,7 @@ function Weather() {
                     <p className="text-red-600 bg-green-100 text-xl font-semibold mt-2 ">{error}</p>
                     
                 </div>
-                <div className="p-2 mt-1 font-medium">
+                <div className="p-2 mt-1 text-xl font-medium" style={{textShadow: "1px 1px 2px white"}}>
                     <h1><b>Weather: </b>{weather}</h1>
                     <h1><b>Temperature: </b>{temerature}</h1>
                     <h1><b>Description: </b>{descrition}</h1>
