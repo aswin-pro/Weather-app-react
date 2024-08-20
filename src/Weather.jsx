@@ -26,11 +26,14 @@ function Weather() {
     const getweater = () => {
         var weatherdata = axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d61d1162075b921eff95386598ef95c7`) //promises - resolve reject
 
+     
         weatherdata.then((sucess) => {
+            const kelvintemp=sucess.data.main.temp
+            const celsiustemp=kelvintemp-273.15;
             // console.log(sucess.data)
             setweather(sucess.data.weather[0].main)
             setdescription(sucess.data.weather[0].description)
-            settemperature(sucess.data.main.temp)
+            settemperature(celsiustemp.toFixed(2))
             setcountry(sucess.data.sys.country)
             seterror("")
         })
@@ -81,7 +84,7 @@ function Weather() {
                 </div>
                 <div className="p-2 mt-1 text-xl font-medium" style={{textShadow: "1px 1px 2px white"}}>
                     <h1><b>Weather: </b>{weather}</h1>
-                    <h1><b>Temperature: </b>{temerature}</h1>
+                    <h1><b>Temperature: </b>{temerature} °C</h1>
                     <h1><b>Description: </b>{descrition}</h1>
                     <h1><b>Country: </b>{country}</h1>
                 </div>
